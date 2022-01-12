@@ -7,12 +7,11 @@ import { Component } from "@angular/core";
     styleUrls:[`./server.component.css`]
 })
 export class ServerComponent{
-    serverNumber: number = 10;
+    allowNewServer = false;
 
-    serverStatus: string = 'offline';
-    
-    fun(){
-        var text = 'returned some text';
-        return text;
+    constructor(){
+        setTimeout(() => {
+            this.allowNewServer = true;
+        }, 5000);
     }
 }
