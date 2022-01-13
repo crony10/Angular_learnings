@@ -1,5 +1,3 @@
 <p>Server component called </p>
-<button class="btn btn-success" [disabled]="!allowNewServer" (click)="onCreateServer()">
-    Add server
-</button>
-<p>{{serverCreationStatus}}</p>
+<input type="text" class="form-control" (input)="onUpdateServer($event)">
+<p>{{serverName}}</p>
