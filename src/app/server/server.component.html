@@ -1,4 +1,5 @@
 <p>Server component called </p>
-<!-- for the temp commit <button class="btn btn-success" [disabled]="!allowNewServer">
+<button class="btn btn-success" [disabled]="!allowNewServer" (click)="onCreateServer()">
     Add server
-</button> -->
+</button>
+<p>{{serverCreationStatus}}</p>
