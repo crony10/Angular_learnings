@@ -1,3 +1,8 @@
 <p>Server component called </p>
+
+<h2>This uses single way data binding</h2>
 <input type="text" class="form-control" (input)="onUpdateServer($event)">
+<hr>
+<h2>This uses two-way data binding</h2>
+<input type="text" class="form-control" [(ngModel)]="serverName">
 <p>{{serverName}}</p>
