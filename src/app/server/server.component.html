@@ -1,8 +1,15 @@
 <p>Server component called </p>
 
-<h2>This uses single way data binding</h2>
-<input type="text" class="form-control" (input)="onUpdateServer($event)">
-<hr>
-<h2>This uses two-way data binding</h2>
+<!-- 1)one way data binding -->
+<!-- <input type="text" class="form-control" (input)="onUpdateServer($event)"> -->
+
+<!--1) Two way data binding -->
 <input type="text" class="form-control" [(ngModel)]="serverName">
-<p>{{serverName}}</p>
+
+<!-- 2)Event and 3)property binding -->
+<!-- (click) =>event binding -->
+<!-- [disabled] => property binding -->
+<button class="btn btn-success" [disabled]="!allowNewServer" (click)="onCreateServer()">Click to create a server</button>
+
+<!--4) String interpolaton -->
+<p>String interpolation -> server name is: {{serverName}} <br> and status is : {{serverCreationStatus}}</p>
