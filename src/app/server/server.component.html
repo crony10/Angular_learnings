@@ -1,27 +1,7 @@
 <p>Server component called </p>
 
-<!-- 1)one way data binding -->
-<input type="text" class="form-control" (input)="onUpdateServer($event)">
+<input type="text" [(ngModel)]="serverName" class="form-control">
+<button class="btn btn-success" [disabled]="!allowNewServer" (click)="onCreateServer()">Add server</button>
+<!-- <p>{{serverName}}</p> -->
 
-<!--1) Two way data binding -->
-<input type="text" class="form-control" [(ngModel)]="serverName">
-
-<!-- 2)Event and 3)property binding -->
-<!-- (click) =>event binding -->
-<!-- [disabled] => property binding -->
-<button class="btn btn-success" [disabled]="!allowNewServer" (click)="onCreateServer()">Click to create a server</button>
-
-<!--4) String interpolaton -->
-<p>String interpolation -> server name is: {{serverName}} <br> and status is : {{serverCreationStatus}}</p>
-
-
-
-
-
-<!-- <p>Assignment</p>
-<input type="text" class="form-control" [(ngModel)]="username">
-
-<p>{{username}}</p> -->
-
-<!-- Instead of making a function directlu putting logic in [disabled] (property binding) and (click)event binding -->
-<!-- <button class="btn btn-success" [disabled]="username === ''" (click)="username=''">Reset</button> -->
+<p *ngIf="serverCreated">server is created and the name is: {{serverName}}</p>
