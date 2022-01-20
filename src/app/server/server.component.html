@@ -1,7 +1,1 @@
-<p>Server component called </p>
-
-<input type="text" [(ngModel)]="serverName" class="form-control">
-<button class="btn btn-success" [disabled]="!allowNewServer" (click)="onCreateServer()">Add server</button>
-<!-- <p>{{serverName}}</p> -->
-
-<p *ngIf="serverCreated">server is created and the name is: {{serverName}}</p>
+<p [ngStyle]="{backgroundColor:getColor()}">server status is : {{serverStatus}}</p>

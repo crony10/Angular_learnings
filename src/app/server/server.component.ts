@@ -7,23 +7,15 @@ import { Component } from "@angular/core";
     styleUrls:[`./server.component.css`]
 })
 export class ServerComponent{
-    allowNewServer = false;
-    serverCreationStatus = 'Server is not created yet';
-    serverName =  'server initial';
-    serverCreated = false;
+    serverStatus = 'offline';
 
     constructor(){
-        setTimeout(() => {
-            this.allowNewServer = true;
-        }, 2000);
+        setInterval(() => {
+            this.serverStatus = Math.random() > 0.5 ? 'offline' : 'online';
+        }, 500);
     }
-
-    onCreateServer(){
-        this.serverCreated = true;
-        this.serverCreationStatus = 'Server is created and name of the server is ' + this.serverName + ' wohooooooo';
-    }
-
-    onUpdateServer(event: Event){
-        this.serverName = (<HTMLInputElement>event.target).value;
+    
+    getColor(){
+        return this.serverStatus === 'offline' ? 'red' : 'blue';
     }
 }
