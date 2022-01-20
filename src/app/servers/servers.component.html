@@ -1,4 +1,13 @@
 <h4>Servers component called 1</h4>
 <hr>
-<app-server></app-server>
-<app-server></app-server>
+<p>Server component called </p>
+
+<input type="text" [(ngModel)]="serverName" class="form-control">
+<br>
+<button class="btn btn-success" [disabled]="!allowNewServer" (click)="onCreateServer()">Add server</button>
+<br>
+<!-- <p>{{serverName}}</p> -->
+<p *ngIf="serverCreated">server is created and the name is: {{serverName}}</p>
+<br>
+
+<app-server *ngFor="let server of servers"></app-server>
