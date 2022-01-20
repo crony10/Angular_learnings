@@ -1,7 +1,7 @@
 <p>Server component called </p>
 
 <!-- 1)one way data binding -->
-<!-- <input type="text" class="form-control" (input)="onUpdateServer($event)"> -->
+<input type="text" class="form-control" (input)="onUpdateServer($event)">
 
 <!--1) Two way data binding -->
 <input type="text" class="form-control" [(ngModel)]="serverName">
@@ -13,3 +13,15 @@
 
 <!--4) String interpolaton -->
 <p>String interpolation -> server name is: {{serverName}} <br> and status is : {{serverCreationStatus}}</p>
+
+
+
+
+
+<!-- <p>Assignment</p>
+<input type="text" class="form-control" [(ngModel)]="username">
+
+<p>{{username}}</p> -->
+
+<!-- Instead of making a function directlu putting logic in [disabled] (property binding) and (click)event binding -->
+<!-- <button class="btn btn-success" [disabled]="username === ''" (click)="username=''">Reset</button> -->

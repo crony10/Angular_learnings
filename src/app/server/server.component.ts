@@ -24,4 +24,7 @@ export class ServerComponent{
     onUpdateServer(event: Event){
         this.serverName = (<HTMLInputElement>event.target).value;
     }
+
+    // username = '';
+
 }
