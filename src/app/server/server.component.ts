@@ -11,15 +11,5 @@ import { Component } from "@angular/core";
     `]
 })
 export class ServerComponent{
-    serverStatus = 'offline';
-
-    constructor(){
-        setInterval(() => {
-            this.serverStatus = Math.random() > 0.5 ? 'offline' : 'online';
-        }, 500);
-    }
     
-    getColor(){
-        return this.serverStatus === 'offline' ? 'red' : 'blue';
-    }
 }

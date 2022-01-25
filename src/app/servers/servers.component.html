@@ -1,13 +1,10 @@
-<h4>Servers component called 1</h4>
-<hr>
-<p>Server component called </p>
+<button class="btn btn-success" (click)="buttonClicked = !buttonClicked;onClick()">Display Details</button>
 
-<input type="text" [(ngModel)]="serverName" class="form-control">
-<br>
-<button class="btn btn-success" [disabled]="!allowNewServer" (click)="onCreateServer()">Add server</button>
-<br>
-<!-- <p>{{serverName}}</p> -->
-<p *ngIf="serverCreated">server is created and the name is: {{serverName}}</p>
-<br>
+<p *ngIf="buttonClicked">secret password : hehehe</p>
 
-<app-server *ngFor="let server of servers"></app-server>
+<!-- addding the css in [ngClass] internally
+for this, use styles in your ts file.(see server component ts file for example) -->
+<!-- <div *ngFor="let items of secretArray" [ngStyle]="{backgroundColor:items>=5?'blue':'transparent'}" [ngClass]="{clicked:items>=5}">{{items}}</div> -->
+
+<!-- addding the css in [ngClass] externally -->
+<div *ngFor="let items of secretArray" [ngStyle]="{backgroundColor:items>=5?'blue':'transparent'}" [ngClass]="{'text-color':items>=5}">{{items}}</div>
