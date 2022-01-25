@@ -2,9 +2,4 @@
 
 <p *ngIf="buttonClicked">secret password : hehehe</p>
 
-<!-- addding the css in [ngClass] internally
-for this, use styles in your ts file.(see server component ts file for example) -->
-<!-- <div *ngFor="let items of secretArray" [ngStyle]="{backgroundColor:items>=5?'blue':'transparent'}" [ngClass]="{clicked:items>=5}">{{items}}</div> -->
-
-<!-- addding the css in [ngClass] externally -->
-<div *ngFor="let items of secretArray" [ngStyle]="{backgroundColor:items>=5?'blue':'transparent'}" [ngClass]="{'text-color':items>=5}">{{items}}</div>
+<div *ngFor="let items of secretArray; let i = index" [ngStyle]="{backgroundColor:i>=5?'blue':'transparent'}" [ngClass]="{'text-color':i>=5}">{{items}}</div>

@@ -8,21 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class ServersComponent {
   count = 3;
   buttonClicked = false;
-  secretArray: number[] = [];
+  secretArray: string[] = [];
 
   
   onClick(){
-    // this.count++;
-    // this.buttonClicked = !this.buttonClicked;
-    this.secretArray.push(this.secretArray.length +1); 
+    this.count++;
+    this.secretArray.push('hey crony and nin '+this.count); 
   }
-
-  // getColor(){
-  //   if(this.secretArray.length>=5){
-  //     return 'blue';
-  //   }
-  //   return 'transparent'; 
-  // }
   
 
 
