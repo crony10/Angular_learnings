@@ -1,5 +1,0 @@
-<button class="btn btn-success" (click)="buttonClicked = !buttonClicked;onClick()">Display Details</button>
-
-<p *ngIf="buttonClicked">secret password : hehehe</p>
-
-<div *ngFor="let items of secretArray; let i = index" [ngStyle]="{backgroundColor:i>=5?'blue':'transparent'}" [ngClass]="{'text-color':i>=5}">{{items}}</div>
