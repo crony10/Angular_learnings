@@ -11,6 +11,14 @@
             <a href="#" class="navbar-brand">Recipe Book</a>
         </div>
 
+        <!-- <div class="navbar-header">
+            <button type="button" class="navbar-toggle" (click)="collapsed = !collapsed">
+              <span class="icon-bar" *ngFor="let iconBar of [1, 2, 3]"></span>
+            </button>
+            <a href="#" class="navbar-brand">Recipe Book</a>
+        </div>
+        <div class="navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true"> -->
+
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="#">Recipes</a></li>
@@ -19,6 +27,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
+                    <!-- To display the dropdown button and the caret button -->
                     <a href="#" class="dropdown-toggle" role="button">Manage<span class="caret"></span></a>
                     <!-- to add items in dropdown -->
                     <ul class="dropdown-menu">
