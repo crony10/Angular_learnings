@@ -6,6 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'crony-app';
-  name = 'su chale che';
+  serverElements = [{
+    type:'server',
+    name:'server test',
+    content:'server test it is'
+  }];
+  
+  
 }
