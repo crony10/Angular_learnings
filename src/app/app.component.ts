@@ -12,5 +12,20 @@ export class AppComponent {
     content:'server test it is'
   }];
   
-  
+  // We are putting the right data once the button is clicked
+  onServerAdded(serverData: {serverName:string,serverContent:string}) {
+    this.serverElements.push({
+      type: 'server',
+      name: serverData.serverName,
+      content: serverData.serverContent
+    });
+  }
+
+  onBlueprintAdded(blueprintData: {serverName:string,serverContent:string}) {
+    this.serverElements.push({
+      type: 'blueprint',
+      name: blueprintData.serverName,
+      content: blueprintData.serverContent
+    });
+  }
 }

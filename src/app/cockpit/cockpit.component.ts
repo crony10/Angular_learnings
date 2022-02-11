@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,EventEmitter, Output } from '@angular/core';
+
 
 @Component({
   selector: 'app-cockpit',
@@ -6,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cockpit.component.css']
 })
 export class CockpitComponent implements OnInit {
+
+  // This both PROPERTIES will be our event emitters
+  @Output() onServerCreated = new EventEmitter<{serverName:string,serverContent:string}>();
+
+  // we can set alias name for it same like we did in custom property binding
+  @Output('bpCreated') onBlueprintCreated =  new EventEmitter<{serverName:string,serverContent:string}>();
 
   constructor() { }
 
@@ -15,19 +22,18 @@ export class CockpitComponent implements OnInit {
   newServerName = '';
   newServerContent = '';
 
-  onAddServer() {
-    // this.serverElements.push({
-    //   type: 'server',
-    //   name: this.newServerName,
-    //   content: this.newServerContent
-    // });
+  onAddServer(){
+    this.onServerCreated.emit({
+      serverName:this.newServerName,
+      serverContent:this.newServerContent
+    })
   }
 
-  onAddBlueprint() {
-    // this.serverElements.push({
-    //   type: 'blueprint',
-    //   name: this.newServerName,
-    //   content: this.newServerContent
-    // });
+  onAddBlueprint(){
+    this.onBlueprintCreated.emit({
+      serverName:this.newServerName,
+      serverContent:this.newServerContent
+    })
   }
+  
 }
