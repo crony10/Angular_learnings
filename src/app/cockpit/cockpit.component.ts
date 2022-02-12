@@ -1,4 +1,4 @@
-import { Component, OnInit,EventEmitter, Output } from '@angular/core';
+import { Component, OnInit,EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
 
 
 @Component({
@@ -8,10 +8,8 @@ import { Component, OnInit,EventEmitter, Output } from '@angular/core';
 })
 export class CockpitComponent implements OnInit {
 
-  // This both PROPERTIES will be our event emitters
   @Output() onServerCreated = new EventEmitter<{serverName:string,serverContent:string}>();
 
-  // we can set alias name for it same like we did in custom property binding
   @Output('bpCreated') onBlueprintCreated =  new EventEmitter<{serverName:string,serverContent:string}>();
 
   constructor() { }
@@ -19,20 +17,26 @@ export class CockpitComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  newServerName = '';
-  newServerContent = '';
+  // newServerName = '';
+  @ViewChild('serverContentInput') serverContentInput: ElementRef;
 
-  onAddServer(){
+  /* remember type of this local reference that is:  HTMLInputElement */
+  /* don't try change the value of the element using this kind of approach */
+  onAddServer(serverNameInput:HTMLInputElement){
     this.onServerCreated.emit({
-      serverName:this.newServerName,
-      serverContent:this.newServerContent
+
+      /* 1st way of accessing local reference */
+      serverName:serverNameInput.value,
+
+      /* 2nd way of accessing local reference */
+      serverContent:this.serverContentInput.nativeElement.value
     })
   }
 
-  onAddBlueprint(){
+  onAddBlueprint(serverNameInput:HTMLInputElement,){
     this.onBlueprintCreated.emit({
-      serverName:this.newServerName,
-      serverContent:this.newServerContent
+      serverName:serverNameInput.value,
+      serverContent:this.serverContentInput.nativeElement.value
     })
   }
   
