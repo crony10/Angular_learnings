@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -11,15 +11,33 @@ import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
   // https://angular.io/guide/view-encapsulation
   encapsulation: ViewEncapsulation.Emulated
 })
-export class ServerElementComponent implements OnInit {
+export class ServerElementComponent implements OnInit, OnChanges{
 
   // This is example of binding to custom properties
   // 'srvElement' is the alias given to the element which is being used in app component.html
   @Input('srvElement') element: {type:string,name:string,content: string};
+  @Input() name: string;
 
   constructor() { }
 
+  ngOnChanges(changes: SimpleChanges){
+    console.log("ngOnChanges called!");
+    console.log(changes);
+    
+    // This is to log the previous value 
+    // for (let propName in changes) {
+    //   let chng = changes[propName];
+    //   let cur  = JSON.stringify(chng.currentValue);
+    //   let prev = JSON.stringify(chng.previousValue);
+    //   console.log("current is : "+cur);
+    //   console.log("previous is : "+prev);
+    // }
+
+
+  }
+
   ngOnInit(): void {
+    console.log("ngOnInit called!")
   }
 
 }

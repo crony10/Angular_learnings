@@ -3,20 +3,23 @@
     <app-cockpit (onServerCreated)="onServerAdded($event)" (bpCreated)="onBlueprintAdded($event)"></app-cockpit>
     <hr>
     <div class="row">
+
+
         <!-- custom property binding -->
         <div class="col-xs-12">
-            <app-server-element 
-            *ngFor="let serverElement of serverElements" 
-            [srvElement]="serverElement">
-                <p>
-                    <strong 
-                    *ngIf="serverElement.type === 'server'" 
-                    style="color: red">
-                    {{ serverElement.content }}
-                    </strong>
-                    <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
-                </p>
-            </app-server-element>
+            <!-- button to change the first element's name -->
+            <div style="padding-bottom: 10px;">
+                <button class="p-2 btn btn-primary" (click)="onChangeName()">change the name of first element</button>
+            </div>
+
+                <app-server-element *ngFor="let serverElement of serverElements" [name]="serverElement.name">
+                    <p>
+                        <strong *ngIf="serverElement.type === 'server'" style="color: red">
+                            {{ serverElement.content }}
+                        </strong>
+                        <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
+                    </p>
+                </app-server-element>
         </div>
     </div>
 </div>

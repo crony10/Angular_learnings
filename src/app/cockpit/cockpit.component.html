@@ -10,22 +10,20 @@
         <!-- using local references instead of two way data binding -->
 
         <!-- 1st way of accessing the local reference -->
-        <input 
-            type="text" 
-            class="form-control" 
-            #serverNameInput>
+        <input type="text" class="form-control" #serverNameInput>
 
         <!-- 2nd way of accessing local reference -->
         <label>Server Content</label>
-        <input 
-            type="text" 
-            class="form-control" 
-            #serverContentInput>
+        <input type="text" class="form-control" #serverContentInput>
         <br>
 
-        <button class="btn btn-primary" (click)="onAddServer(serverNameInput)">
-            Add Server
-        </button>
-        <button class="btn btn-primary" (click)="onAddBlueprint(serverNameInput)">Add Server Blueprint</button>
+        <span style="margin-right: 5px;">
+            <button class="btn btn-primary" (click)="onAddServer(serverNameInput)">
+                Add Server
+            </button>
+        </span>
+        <span>
+            <button class="btn btn-primary" (click)="onAddBlueprint(serverNameInput)">Add Server Blueprint</button>
+        </span>
     </div>
 </div>
