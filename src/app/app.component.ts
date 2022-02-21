@@ -33,4 +33,9 @@ export class AppComponent {
   onChangeName(){
     this.serverElements[0].name = 'changed!';
   }
+
+  // This method will delete the first entry 
+  onDestroy(){
+    this.serverElements.splice(0,1);
+  }
 }

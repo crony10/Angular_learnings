@@ -12,6 +12,10 @@
                 <button class="p-2 btn btn-primary" (click)="onChangeName()">change the name of first element</button>
             </div>
 
+            <div style="padding-bottom: 10px;">
+                <button class="p-2 btn btn-danger" (click)="onDestroy()">change the Destroy the first element</button>
+            </div>
+
                 <app-server-element *ngFor="let serverElement of serverElements" [name]="serverElement.name">
                     <p>
                         <strong *ngIf="serverElement.type === 'server'" style="color: red">
