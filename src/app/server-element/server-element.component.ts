@@ -10,7 +10,9 @@ import {
   AfterContentChecked,
   AfterViewInit,
   AfterViewChecked,
-  OnDestroy
+  OnDestroy,
+  ViewChild,
+  ElementRef
 } from '@angular/core';
 
 @Component({
@@ -38,6 +40,7 @@ export class ServerElementComponent implements
   // 'srvElement' is the alias given to the element which is being used in app component.html
   @Input('srvElement') element: { type: string, name: string, content: string };
   @Input() name: string;
+  @ViewChild('heading',{static:true}) heading: ElementRef;
 
   constructor() { }
 
@@ -58,6 +61,10 @@ export class ServerElementComponent implements
 
   ngOnInit(): void {
     console.log("ngOnInit called!")
+    
+    // you can't take the content using ViewChild of any particular element before that view is rendered 
+    // Like here it gives undefined
+    console.log("heading content: " + this.heading.nativeElement.textContent);
   }
 
   ngDoCheck() {
@@ -65,6 +72,7 @@ export class ServerElementComponent implements
   }
 
   ngAfterContentInit() {
+
     console.log("ngAfterContentInit called!")
   }
 
@@ -72,6 +80,10 @@ export class ServerElementComponent implements
     console.log("ngAfterContentInit called!")
   }
   ngAfterViewInit() {
+
+    // after the view has been rendered you can access the content using ViewChild decorater
+    console.log("heading content: " + this.heading.nativeElement.textContent);
+
     console.log("ngAfterViewInit called!")
   }
   ngAfterViewChecked() {
