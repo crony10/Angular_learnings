@@ -12,7 +12,8 @@ import {
   AfterViewChecked,
   OnDestroy,
   ViewChild,
-  ElementRef
+  ElementRef,
+  ContentChild
 } from '@angular/core';
 
 @Component({
@@ -41,6 +42,7 @@ export class ServerElementComponent implements
   @Input('srvElement') element: { type: string, name: string, content: string };
   @Input() name: string;
   @ViewChild('heading',{static:true}) heading: ElementRef;
+  @ContentChild('paragraph',{static:true}) paragraph: ElementRef;
 
   constructor() { }
 
@@ -65,6 +67,10 @@ export class ServerElementComponent implements
     // you can't take the content using ViewChild of any particular element before that view is rendered 
     // Like here it gives undefined
     console.log("heading content: " + this.heading.nativeElement.textContent);
+
+    // This is the method of referecncing if the data is in the component part : @ContentChild we can't use @ViewChild because the paragraph which we want to target is in the content part of app component html.
+    // However we can only use after the content is rendered just like @ViewChild above
+    console.log("paragraph content: "+ this.paragraph.nativeElement.textContent);
   }
 
   ngDoCheck() {
@@ -72,8 +78,8 @@ export class ServerElementComponent implements
   }
 
   ngAfterContentInit() {
-
     console.log("ngAfterContentInit called!")
+    console.log("paragraph content: "+ this.paragraph.nativeElement.textContent);
   }
 
   ngAfterContentChecked() {
@@ -83,7 +89,6 @@ export class ServerElementComponent implements
 
     // after the view has been rendered you can access the content using ViewChild decorater
     console.log("heading content: " + this.heading.nativeElement.textContent);
-
     console.log("ngAfterViewInit called!")
   }
   ngAfterViewChecked() {
