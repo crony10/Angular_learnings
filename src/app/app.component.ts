@@ -6,36 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  serverElements = [{
-    type:'server',
-    name:'server test',
-    content:'server test it is'
-  }];
-  
-  // We are putting the right data once the button is clicked
-  onServerAdded(serverData: {serverName:string,serverContent:string}) {
-    this.serverElements.push({
-      type: 'server',
-      name: serverData.serverName,
-      content: serverData.serverContent
-    });
-  }
 
-  onBlueprintAdded(blueprintData: {serverName:string,serverContent:string}) {
-    this.serverElements.push({
-      type: 'blueprint',
-      name: blueprintData.serverName,
-      content: blueprintData.serverContent
-    });
-  }
+  evenCountNumbers :number[] = [];
+  oddCountNumbers:number[] = [];
 
-  // This method changes the name of first element 
-  onChangeName(){
-    this.serverElements[0].name = 'changed!';
-  }
+  // catching up the count number coming from controller
+  intervalFired(count:number){
+    console.log("in app component:"+count);
 
-  // This method will delete the first entry 
-  onDestroy(){
-    this.serverElements.splice(0,1);
+    // segregating count in odd and even and adding them into an array of numbers
+    if(count%2===0){
+      this.evenCountNumbers.push(count);
+    }
+    else{
+      this.oddCountNumbers.push(count);
+    }
   }
 }
