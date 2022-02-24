@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { Recipe } from '../../recipe.model';
 
 @Component({
@@ -7,9 +7,7 @@ import { Recipe } from '../../recipe.model';
   styleUrls: ['./recipe-item.component.css']
 })
 export class RecipeItemComponent implements OnInit {
-  recipes: Recipe[] = [
-    new Recipe('test 1','test desc','https://media.timeout.com/images/105757031/750/422/image.jpg')
-  ];
+  @Input('recipesList') recipes!: Recipe; 
   constructor() { }
 
   ngOnInit(): void {
