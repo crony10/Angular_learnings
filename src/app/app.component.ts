@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  loadedPageName = ''
   title = 'crony-app';
   name = 'su chale che';
+
+  // This function adds the page name which came from the respective component which is either recipe or shoppingList
+  onNavigate(pageName:string){
+    this.loadedPageName = pageName; 
+  }
 }
