@@ -1,13 +1,16 @@
 <!-- Image -->
 <div class="row">
     <div class="col-xs-12">
-        <img class="img-responsive" src="" alt="image">
+        <img class="img-responsive"
+        [src]="detailedRecipeItem.imagePath" 
+        alt="image"
+        style="height: 300px;">
     </div>
 </div>
 <!-- Name of the recipe -->
 <div class="row">
     <div class="col-xs-12">
-        <h3>name</h3>
+        <h3>{{detailedRecipeItem.name}}</h3>
     </div>
 </div>
 <!-- for managing recipe radio button -->
@@ -31,7 +34,7 @@
 <!-- Description -->
 <div class="row">
     <div class="col-xs-12">
-        Description
+        {{detailedRecipeItem.description}}
     </div>
 </div>
 <!-- Ingredients -->

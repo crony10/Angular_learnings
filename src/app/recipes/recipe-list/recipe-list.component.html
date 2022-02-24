@@ -9,7 +9,11 @@
 <!-- For populating the list of recipes -->
 <div class="row">
     <div class="col-xs-12">
+        <!-- closefully observe the rectangle and round brackets -->
+        <!-- square brackets to send recipeEl data to child component -->
+        <!-- round brackets for accepting data from child component -->
         <app-recipe-item *ngFor="let recipeEl of recipes"
-        [recipesList]="recipeEl"></app-recipe-item>
+        [recipesListInput]="recipeEl"
+        (recipeItem)="listElementClicked(recipeEl)"></app-recipe-item>
     </div>
 </div>
