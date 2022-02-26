@@ -7,7 +7,7 @@ import { Component,Input } from '@angular/core';
 })
 export class AppComponent {
 
-  loadedPageName = ''
+  loadedPageName = 'recipe'
   title = 'crony-app';
   name = 'su chale che';
 
